@@ -65,31 +65,25 @@ kubectl port-forward -n kubecost deployment/kubecost-cost-analyzer 9090
 
 📈 Intégration Prometheus + Grafana
 Installation via Helm :
-bash
-Copier
-Modifier
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
 🔒 Récupération mot de passe Grafana :
-bash
-Copier
-Modifier
 kubectl --namespace monitoring get secrets prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+
 🎯 Dashboards ajoutés dans Grafana :
 
-Utilisation CPU / RAM par pod
-
-Requests vs Limits
-
-Vue namespace + composants actifs
+- Utilisation CPU / RAM par pod
+- Requests vs Limits
+- Vue namespace + composants actifs
 
 📊 Analyse FinOps via Kubecost
 🔍 Données relevées :
-Indicateur	Résultat initial	Résultat final
-Kubernetes Costs	0,03 $US	4,79 $US
-Total Costs	0,03 $US	4,79 $US
-Possible Savings	1,81 $US/mo	1,96 $US/mo
-Cluster Efficiency	0 %	0 %
+Indicateur	      Résultat initial	   Résultat final
+Kubernetes Costs	0,03 $US	           4,79 $US
+Total Costs	      0,03 $US	           4,79 $US
+Possible Savings	1,81 $US/mo	         1,96 $US/mo
+Cluster Efficiency	0 %	               0 %
 
 💡 Recommandations FinOps :
 🔧 Réduction des requests CPU/RAM
@@ -103,9 +97,6 @@ Cluster Efficiency	0 %	0 %
 🐳 Utilisation d’images plus légères (ex : node:alpine)
 
 📂 Arborescence du projet
-bash
-Copier
-Modifier
 mern-blog/
 ├── api/                       # Backend Node
 ├── client/                    # Frontend React
