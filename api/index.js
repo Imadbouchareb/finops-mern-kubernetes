@@ -12,14 +12,14 @@ import userRoutes from './routes/User.js'
 
 const app = express()
 dotenv.config()
-const port = 8080
+const port = process.env.PORT || 8080
 app.use(cors())
 
 // Now connect to MONGODB using mongoose as well as a disconnection message.
 
 const dbConnect = async () => {
   try {
-    await mongoose.connect(process.env.MONGO)
+    await mongoose.connect(process.env.MONGO_URI)
     console.log(`Connected to MongoDB!`)
   } catch (error) {
     throw error
